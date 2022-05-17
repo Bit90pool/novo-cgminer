@@ -1,18 +1,18 @@
-Novo Bitcoin Miner
+## Novo Bitcoin Miner
 
 This miner has been modified to work with Novo Bitcoin's sha256dt algorithm
 
-Compile with OpenCL enabled:
+## Compile with OpenCL enabled:
 
-./autogen.sh
-CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl
-make
+* ```./autogen.sh```
+* ```CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl```
+* ```make```
 
 If you get compile errors you might also need the -fcommon flag.
 
-Run cgminer:
+## Run cgminer:
 
-cgminer -o stratum+tcp://pool:port -u user -p password
+```./cgminer -o stratum+tcp://mine.bit90.io:3333 -u pubkey.workername```
 
 Working kernels:
 * poclbm
@@ -32,29 +32,9 @@ This code is provided entirely free of charge by the programmer in his spare
 time so donations would be greatly appreciated. Please consider donating to the
 address below.
 
-Con Kolivas <kernel@kolivas.org>
-15qSxP1SQcUX3o4nhkfdbgyoWEFMomJ4rZ
-
-DOWNLOADS:
-
-http://ck.kolivas.org/apps/cgminer
-
-GIT TREE:
+Based on original code from 
 
 https://github.com/ckolivas/cgminer
-
-Support thread:
-
-http://bitcointalk.org/index.php?topic=28402.0
-
-IRC Channel:
-
-irc://irc.freenode.net/cgminer
-
-License: GPLv3.  See COPYING for details.
-
-SEE ALSO API-README, ASIC-README, FGPA-README, GPU-README AND SCRYPT-README FOR
-MORE INFORMATION ON EACH.
 
 ---
 
@@ -105,6 +85,8 @@ that don't specify their own proxy setting like above
 
 ---
 BUILDING CGMINER FOR YOURSELF
+
+sudo apt install ocl-icd-* opencl-headers
 
 DEPENDENCIES:
 Mandatory:
