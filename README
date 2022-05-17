@@ -6,23 +6,23 @@ This miner has been modified to work with Novo Bitcoin's sha256dt algorithm
 
 ### 1.Clone the Repo
 
-```git clone https://github.com/Bit90pool/novo-cgminer.git```
+`git clone https://github.com/Bit90pool/novo-cgminer.git`
 
 ### 2.Install dependancies
 
-```sudo apt install ocl-icd-* opencl-headers libcurl4-openssl-dev pkg-config libtool```
+`sudo apt install ocl-icd-* opencl-headers libcurl4-openssl-dev pkg-config libtool`
 
 ### 3.Compile
 
-* ```./autogen.sh```
-* ```CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl```
-* ```make```
+* `./autogen.sh`
+* `CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl`
+* `make`
 
 If you get compile errors you might also need the -fcommon flag.
 
 ## Run cgminer:
 
-```./cgminer -o stratum+tcp://mine.bit90.io:3333 -u pubkey.workername```
+`./cgminer -o stratum+tcp://mine.bit90.io:3333 -u pubkey.workername`
 
 Working kernels:
 * poclbm
