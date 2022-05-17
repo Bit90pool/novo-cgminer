@@ -2,7 +2,17 @@
 
 This miner has been modified to work with Novo Bitcoin's sha256dt algorithm
 
-## Compile with OpenCL enabled:
+## How to compile from source with OpenCL enabled:
+
+### 1.Clone the Repo
+
+```git clone https://github.com/Bit90pool/novo-cgminer.git```
+
+### 2.Install dependancies
+
+```sudo apt install ocl-icd-* opencl-headers libcurl4-openssl-dev pkg-config libtool```
+
+### 3.Compile
 
 * ```./autogen.sh```
 * ```CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl```
@@ -86,7 +96,7 @@ that don't specify their own proxy setting like above
 ---
 BUILDING CGMINER FOR YOURSELF
 
-sudo apt install ocl-icd-* opencl-headers
+sudo apt install ocl-icd-* opencl-headers libcurl4-openssl-dev pkg-config libtool	
 
 DEPENDENCIES:
 Mandatory:
