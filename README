@@ -1,18 +1,29 @@
-## Novo Bitcoin Miner
+# Novo Bitcoin Miner
 
 This miner has been modified to work with Novo Bitcoin's sha256dt algorithm
 
-## How to compile from source with OpenCL enabled:
 
-### 1.Clone the Repo
+## How to auto compile using script:
+
+```
+git clone https://github.com/Bit90pool/novo-cgminer.git
+cd novo-cgminer
+chmod +x auto_compile.sh
+./auto_compile.sh
+```
+
+## How to manually compile from source with OpenCL enabled:
+
+
+### 1. Clone the Repo
 
 `git clone https://github.com/Bit90pool/novo-cgminer.git`
 
-### 2.Install dependancies
+### 2. Install dependancies
 
 `sudo apt install ocl-icd-* opencl-headers libcurl4-openssl-dev pkg-config libtool autoconf`
 
-### 3.Compile
+### 3. Compile
 
 * `./autogen.sh`
 * ``CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl``
