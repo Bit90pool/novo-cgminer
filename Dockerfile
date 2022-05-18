@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM nvidia/opencl:devel-ubuntu18.04
 
 LABEL maintainer="charles@sentnl.io"
 LABEL version="1.0"
@@ -16,16 +16,18 @@ ENV PACKAGES="\
   ocl-icd-* \
   opencl-headers \
   openssh-server \
+  ocl-icd-opencl-dev\
+  git \
+  clinfo \
 "
 
 RUN apt update && apt install --no-install-recommends -y $PACKAGES  && \
-    add-apt-repository ppa:graphics-drivers/ppa && \
     rm -rf /var/lib/apt/lists/* && \
     apt clean
 
-RUN ubuntu-drivers autoinstall
+RUN git clone https://github.com/Bit90pool/novo-cgminer.git
 
 
 #CMD ["/usr/sbin/ssgd", "-D"]
-#CMD ["bash"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+CMD ["bash"]
+#ENTRYPOINT ["tail", "-f", "/dev/null"]

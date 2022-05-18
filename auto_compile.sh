@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-set -eo pipefail
-
 bs_dir="$(dirname $(readlink -f $0))"
 
 #terminal colors
@@ -15,41 +13,21 @@ export COLOR_YELLOW
 COLOR_BLUE=$(tput setaf 4)
 export COLOR_BLUE
 
-#variables
-INITIAL_PARAMS="$*"
-GLOBAL="y"
 
 
-help_function() {
-    echo -e "\nAutomated shell script that installs all dependencies and then compiles cgminer"
-    echo -e "\nUsage: ./auto_compile.sh\n"
-    echo -e "Options:"
-    echo -e "  --help ==> Show this menu"
-    exit 0
-}
 
-
-install_dep() {
  echo -e "\n\n${COLOR_YELLOW}Installing dependencies...${COLOR_NC}\n\n"
  # sudo apt install -y build-essential curl
  sudo apt install -y libcurl4-openssl-dev pkg-config libtool ocl-icd-* opencl-headers
-}
 
-compile(){
-  echo -e "\n\n${COLOR_YELLOW}Compiling cgminer....${COLOR_NC}\n\n"
-  "$bs_dir"/autogen.sh
-   CFLAGS="-O2 -Wall -march=native"
-  "$bs_dir"/configure --enable-opencl
-  "$bs_dir"/make
-}
-#******************#
-# End of functions
-#******************#
 
-echo -e "\n\n${COLOR_YELLOW}*** STARTING INSTALL ***${COLOR_NC}\n\n"
 
-install_dep
-compile
+echo -e "\n\n${COLOR_YELLOW}Compiling cgminer....${COLOR_NC}\n\n"
+"$bs_dir"/autogen.sh
+CFLAGS="-O2 -Wall -march=native"
+"$bs_dir"/configure --enable-opencl
+make
+
 
 
 printf "
