@@ -1,4 +1,4 @@
-FROM ubuntu:20:04
+FROM ubuntu:20.04
 
 LABEL maintainer="charles@sentnl.io"
 LABEL version="1.0"
