@@ -29,7 +29,9 @@ RUN apt update && apt install --no-install-recommends -y $PACKAGES  && \
 
 RUN git clone https://github.com/Bit90pool/novo-cgminer.git /root/novo-cgminer
 WORKDIR /root/novo-cgminer
-ADD files/start.sh .
+RUN chmod +x auto_compile.sh && \
+    ./auto_compile.sh
 
-RUN chmod +x start.sh
-CMD start.sh
+#CMD ["/usr/sbin/ssgd", "-D"]
+CMD ["bash"]
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
