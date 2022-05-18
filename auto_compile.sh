@@ -36,7 +36,8 @@ install_dep() {
 compile(){
   echo -e "\n\n${COLOR_BLUE}Compiling cgminer....${COLOR_NC}\n\n"
   ./autogen.sh
-  CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl
+  CFLAGS="-O2 -Wall -march=native" 
+  ./configure --enable-opencl
   make
 }
 #******************#
