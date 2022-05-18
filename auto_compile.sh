@@ -42,7 +42,6 @@ compile(){
 #******************
 # End of functions
 #******************
-arg_checker
 
 echo -e "\n\n${COLOR_BLUE}*** STARTING INSTALL ***${COLOR_NC}\n\n"
 
