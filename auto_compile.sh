@@ -36,10 +36,10 @@ install_dep() {
 }
 
 compile(){
+  cd $bs_dir
   echo -e "\n\n${COLOR_BLUE}Compiling cgminer....${COLOR_NC}\n\n"
   "$bs_dir"/autogen.sh
-  CFLAGS="-O2 -Wall -march=native" 
-  "$bs_dir"/configure --enable-opencl
+  CFLAGS="-O2 -Wall -march=native" "$bs_dir"/configure --enable-opencl
   "$bs_dir"/make
 }
 #******************#
