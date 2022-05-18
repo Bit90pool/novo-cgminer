@@ -39,9 +39,9 @@ compile(){
   CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl
   make
 }
-#******************
+#******************#
 # End of functions
-#******************
+#******************#
 
 echo -e "\n\n${COLOR_BLUE}*** STARTING INSTALL ***${COLOR_NC}\n\n"
 
