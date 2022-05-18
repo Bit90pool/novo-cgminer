@@ -20,6 +20,7 @@ ENV PACKAGES="\
   git \
   clinfo \
   autoconf \
+  automake \
 "
 
 RUN apt update && apt install --no-install-recommends -y $PACKAGES  && \
@@ -32,6 +33,3 @@ ADD files/start.sh .
 
 RUN chmod +x start.sh
 CMD start.sh
-
-#CMD ["/usr/sbin/ssgd", "-D"]
-#CMD ["bash"]
