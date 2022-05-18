@@ -10,7 +10,7 @@ This miner has been modified to work with Novo Bitcoin's sha256dt algorithm
 
 ### 2.Install dependancies
 
-`sudo apt install ocl-icd-* opencl-headers libcurl4-openssl-dev pkg-config libtool`
+`sudo apt install ocl-icd-* opencl-headers libcurl4-openssl-dev pkg-config libtool autoconf`
 
 ### 3.Compile
 

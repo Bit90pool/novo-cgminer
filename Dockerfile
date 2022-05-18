@@ -9,6 +9,8 @@ ARG DEBIAN_FRONTEND=nointeractive
 ENV PACKAGES="\
   build-essential \
   libcurl4-openssl-dev \
+  software-properties-common \
+  ubuntu-drivers-common \
   pkg-config \
   libtool \
   ocl-icd-* \
@@ -17,11 +19,13 @@ ENV PACKAGES="\
 "
 
 RUN apt update && apt install --no-install-recommends -y $PACKAGES  && \
+    add-apt-repository ppa:graphics-drivers/ppa && \
     rm -rf /var/lib/apt/lists/* && \
     apt clean
 
-
+RUN ubuntu-drivers autoinstall
 
 
 #CMD ["/usr/sbin/ssgd", "-D"]
-CMD ["bash"]
+#CMD ["bash"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
