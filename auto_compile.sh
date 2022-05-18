@@ -30,23 +30,23 @@ help_function() {
 
 
 install_dep() {
- echo -e "\n\n${COLOR_BLUE}Installing dependencies...${COLOR_NC}\n\n"
+ echo -e "\n\n${COLOR_YELLOW}Installing dependencies...${COLOR_NC}\n\n"
  # sudo apt install -y build-essential curl
  sudo apt install -y libcurl4-openssl-dev pkg-config libtool ocl-icd-* opencl-headers
 }
 
 compile(){
-  cd $bs_dir
-  echo -e "\n\n${COLOR_BLUE}Compiling cgminer....${COLOR_NC}\n\n"
+  echo -e "\n\n${COLOR_YELLOW}Compiling cgminer....${COLOR_NC}\n\n"
   "$bs_dir"/autogen.sh
-  CFLAGS="-O2 -Wall -march=native" "$bs_dir"/configure --enable-opencl
+   CFLAGS="-O2 -Wall -march=native"
+  "$bs_dir"/configure --enable-opencl
   "$bs_dir"/make
 }
 #******************#
 # End of functions
 #******************#
 
-echo -e "\n\n${COLOR_BLUE}*** STARTING INSTALL ***${COLOR_NC}\n\n"
+echo -e "\n\n${COLOR_YELLOW}*** STARTING INSTALL ***${COLOR_NC}\n\n"
 
 install_dep
 compile
