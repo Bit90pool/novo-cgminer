@@ -19,14 +19,17 @@ ENV PACKAGES="\
   ocl-icd-opencl-dev\
   git \
   clinfo \
+  autoconf \
 "
 
 RUN apt update && apt install --no-install-recommends -y $PACKAGES  && \
     rm -rf /var/lib/apt/lists/* && \
     apt clean
 
-RUN git clone https://github.com/Bit90pool/novo-cgminer.git
-
+RUN git clone https://github.com/Bit90pool/novo-cgminer.git /root/novo-cgminer
+WORKDIR /root/novo-cgminer
+RUN chmod +x auto_compile.sh && \
+    ./auto_compile.sh
 
 #CMD ["/usr/sbin/ssgd", "-D"]
 CMD ["bash"]
