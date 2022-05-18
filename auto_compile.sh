@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+bs_dir="$(dirname $(readlink -f $0))"
+
 #terminal colors
 COLOR_NC=$(tput sgr0)
 export COLOR_NC
@@ -35,10 +37,10 @@ install_dep() {
 
 compile(){
   echo -e "\n\n${COLOR_BLUE}Compiling cgminer....${COLOR_NC}\n\n"
-  ./autogen.sh
+  "$bs_dir"/autogen.sh
   CFLAGS="-O2 -Wall -march=native" 
-  ./configure --enable-opencl
-  make
+  "$bs_dir"/configure --enable-opencl
+  "$bs_dir"/make
 }
 #******************#
 # End of functions
