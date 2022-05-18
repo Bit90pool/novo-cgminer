@@ -15,14 +15,14 @@ This miner has been modified to work with Novo Bitcoin's sha256dt algorithm
 ### 3.Compile
 
 * `./autogen.sh`
-* `CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl`
+* ``CFLAGS="-O2 -Wall -march=native" ./configure --enable-opencl``
 * `make`
 
 If you get compile errors you might also need the -fcommon flag.
 
 ## Run cgminer:
 
-`./cgminer -o stratum+tcp://mine.bit90.io:3333 -u pubkey.workername`
+`./cgminer -o stratum+tcp://mine.bit90.io:3333 -u pubkey.workername -p pubkey`
 
 Working kernels:
 * poclbm
